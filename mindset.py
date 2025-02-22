@@ -5,7 +5,8 @@ import os
 from io import BytesIO
 from PyPDF2 import PdfReader
 from PIL import Image
-Doc import Document # type: ignore
+Doc
+import Document 
 
 st.set_page_config(page_title="File Converter Hub 📁", layout="wide")
 
