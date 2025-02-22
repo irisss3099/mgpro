@@ -1,10 +1,9 @@
-
 from typing_extensions import Doc
 import streamlit as st
 import pandas as pd
 import os
 from io import BytesIO
-from PyPDF2 import PdfReader
+import PyPDF2
 from PIL import Image
 Doc
 import Document 
@@ -43,7 +42,7 @@ if uploaded_files:
         elif file_ext == ".xlsx":
             df = pd.read_excel(file)
         elif file_ext == ".pdf":
-            pdf_reader = PdfReader(file)
+            pdf_reader = pdf_reader(file)
             pdf_text = "\n".join(page.extract_text() for page in pdf_reader.pages)
         elif file_ext == ".docx":
             doc = Document(file)
@@ -55,7 +54,7 @@ if uploaded_files:
             continue
 
         # File Preview
-        st.write(f"### \U0001F4DD Preview of {file.name}")
+        st.write(f"📄  Preview of {file.name}")
         if file_ext in [".csv", ".xlsx"]:
             st.dataframe(df.head())
         elif file_ext in [".pdf", ".docx"]:
@@ -139,5 +138,6 @@ if uploaded_files:
             )
 
     st.success("✅ All files processed successfully!")
+
 
   
