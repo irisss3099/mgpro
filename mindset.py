@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import os
 from io import BytesIO
-import PyPDF2
+import PDF2
 from PIL import Image
 Doc
 import Document 
